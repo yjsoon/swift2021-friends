@@ -16,15 +16,20 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        List(friends) { friend in
-            Image(systemName: friend.icon)
-                .frame(width: 40)
-            VStack(alignment: .leading) {
-                Text(friend.name)
-                    .bold()
-                Text(friend.school)
-                    .font(.caption)
+        NavigationView {
+            List(friends) { friend in
+                NavigationLink(destination: FriendDetailView(friend: friend)) {
+                    Image(systemName: friend.icon)
+                        .frame(width: 40)
+                    VStack(alignment: .leading) {
+                        Text(friend.name)
+                            .bold()
+                        Text(friend.school)
+                            .font(.caption)
+                    }
+                }
             }
+            .navigationTitle("Friends")
         }
         
     }
