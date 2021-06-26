@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var friends = [
+        Friend(name: "Jia Chen", icon: "highlighter", school: "Ngee Ann Polytechnic", slothImage: "sloth1"),
+        Friend(name: "Yi Kai", icon: "lock.doc", school: "CTSS", slothImage: "sloth2"),
+        Friend(name: "Yashvi", icon: "calendar.badge.plus", school: "PHSS", slothImage: "sloth3")
+    ]
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List(friends) { friend in
+                Text(friend.name)
+                    .bold()
+        }
+        
     }
 }
 
